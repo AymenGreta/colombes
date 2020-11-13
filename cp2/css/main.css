@@ -11,8 +11,8 @@ html, body {
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: url(../pics/Desert.jpeg);
-    background-size: cover;
-    
+    background-size: fixed;
+    background-attachment: fixed;
 }
 
 /*#wrapper {
@@ -72,4 +72,173 @@ body {
     border: cornsilk solid 0.25rem;
     color:cornsilk;
     background-color: maroon;
+}
+
+.emp {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+}
+
+.member {
+    border-style:solid;
+    border-width: 0.5rem;
+    border-radius: 50%;
+    width: 150px;
+    transition: all 0.5s;
+}
+
+.member:hover {
+    border-color: black;
+    /*height:calc(150px*1.1);
+    width: calc(150px*1.1);
+    transform: scale(1.1);*/
+    transition: all 1.5s ease-out;
+}
+
+
+
+.girl {
+    border-color:pink;
+
+}
+.girl:hover {
+    transform: scale(1.1); transform: rotate(-750deg);
+}  
+
+.boy {
+    border-color: rgb(87, 174, 255);
+} 
+.boy:hover {
+    transform: scale(1.1); transform: rotate(750deg);
+}  
+
+
+figcaption {
+    color: cornsilk;
+}
+
+#emps{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+@keyframes neon {
+    from {
+        text-shadow:0 0 1rem blanchedalmond;
+        transform: rotate(5deg);
+    }
+    20% {
+        text-shadow:0 0 1rem burlywood;
+    }
+    40% {
+        text-shadow:0 0 1rem coral;
+    }
+    60% {
+        text-shadow:0 0 1rem darkkhaki;
+        transform: rotate(0);
+    }
+    80% {
+        text-shadow:0 0 1rem cornsilk;
+    }
+    to {
+        text-shadow:0 0 1rem floralwhite;
+        transform: rotate(-5deg);
+    }
+}
+
+#name h1 {
+    height: 5rem;
+    line-height: 5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    animation: neon 2s infinite alternate;
+}
+
+h2 {
+    color: rgb(255, 255, 255) ;
+}
+
+#media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#media .interview {
+    width: 30%;
+}
+
+#conv {
+    width: 100%;
+
+}
+
+#media audio {
+    width: 100%;
+}
+
+.level1 {
+    color:  white;
+}
+
+
+.level2 {
+    color: white;
+}
+
+
+#bottom {
+    background-color: black;
+    color: white;
+}
+
+#bottom ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#bottom .level1 {
+    display: flex;
+    justify-content: center;
+}
+
+#bottom .level1>li {
+    margin: 1rem 0 0;
+    padding: 0 2rem;
+    border-left: dotted white 0.25rem;
+}
+
+#bottom .level1>li:first-child {
+    border-left: none;
+}
+
+#bottom h2 {
+    font-variant: small-caps;
+}
+
+#bottom a {
+    color: white;
+    text-decoration: none;
+}
+
+/*FORM*/
+
+form div {
+    margin: 0.5rem 0;
+}
+
+form div>*:first-child {
+    display: inline-block;
+    width: 25%;
+    font-weight: bold;
+    text-align: right;
+}
+
+label {
+    color: white;
+}
+
+.wrapper, h1, legend {
+    color: white;
 }
