@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - TD </title>
+    <style>
+
+        *{
+            border: 1px solid red;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: wheat;
+        }
+
+        body > * {
+            flex: 1 1 0em;
+        }
+
+        header, footer {
+            flex-basis: 100%;
+        }
+
+        header {
+            display: flex;
+            height: 10vh;
+            justify-content: space-between;
+            align-items: center;
+           
+        }
+
+        header > * {
+            flex-basis: 6em;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+        }
+
+        section > * {
+            flex: 1 1 0em;
+        }
+
+        nav {
+            flex-grow: 15;
+        }
+
+        main {
+            flex-grow: 60;
+            display: flex ;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-between;
+        }
+
+        main > div {
+            width: 18vw;
+            /* height: 10vh; */
+            margin-top: 1vh;
+            margin-bottom: 1vh;
+        }
+
+        aside {
+            flex-grow: 25;
+            align-self: flex-start;
+        }
+        
+        footer {
+            text-align: center;
+            height: 5vh;
+        }
+
+        div img {
+            max-width: 100%;
+            max-height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div>Logo</div>
+            <h1>TITRE</h1>
+        <div>Connexion</div>
+
+    </header>
+
+    <section>
+
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Notre équipe</a></li>
+                <li><a href="#">Inscription</a></li>
+                <li><a href="#">Réalisations</a></li>
+                <li><a href="#">Documentation</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div>
+                <figure>
+                    <img src="pics/membre1.jpg" alt="Employé 1">
+                    <figcaption>Employé 1</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <img src="pics/membre2.jpeg" alt="Employé 2">
+                    <figcaption>Employé 2</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <img src="pics/membre3.jpg" alt="Employé 3">
+                    <figcaption>Employé 3</figcaption>
+                </figure>
+            </div>
+            <div><figure>
+                <img src="pics/membre4.jpg" alt="Employé 4">
+                <figcaption>Employé 4</figcaption>
+            </figure></div>
+            <div>
+                <figure>
+                    <img src="pics/membre5.jpg" alt="Employé 5">
+                    <figcaption>Employé 5</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <img src="pics/membre6.jpg" alt="Employé 6">
+                    <figcaption>Employé 6</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <img src="pics/membre7.jpg" alt="Employé 7">
+                    <figcaption>Employé 7</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <img src="pics/membre8.jpg" alt="Employé 8">
+                    <figcaption>Employé 8</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <img src="pics/membre9.jpg" alt="Employé 9">
+                    <figcaption>Employé 9</figcaption>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <img src="pics/membre10.jpg" alt="Employé 10">
+                    <figcaption>Employé 10</figcaption>
+                </figure>
+            </div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed necessitatibus laudantium facere deleniti corporis, doloribus impedit aspernatur. Consectetur minima sequi maiores. Dolores rem qui consequuntur? Ipsa sit praesentium aut dolores!Minima adipisci nihil id tempore corrupti fugit? Odit libero adipisci, laudantium ipsa perferendis deleniti repellendus iure inventore id eos ut nam architecto voluptatem doloribus dolorem at nesciunt laboriosam quod deserunt.</div>
+        </main>
+
+        <aside>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam aspernatur facilis, recusandae, in fuga accusamus at dolore illo veritatis quaerat aperiam doloremque explicabo voluptatum ipsum repudiandae, libero cumque corrupti ratione?
+        Dolor maxime dolores vitae odit neque repudiandae beatae consequuntur suscipit ducimus? Maiores, doloremque sint ipsam eum deleniti aliquam cupiditate exercitationem quasi amet asperiores sequi similique qui. Repellat repellendus voluptatum eum.
+        Quaerat aliquam quam in minima odio nihil sapiente. Explicabo praesentium, perspiciatis aperiam nesciunt sequi quo, velit quis beatae doloremque rerum provident assumenda incidunt a quos recusandae impedit nam, tenetur ut.</aside>
+
+    </section>
+    
+    <footer>
+
+        <p>&copy; Flexbox-Greta 92 2020-21</p>
+
+    </footer>
+
+</body>
+
+</html>
