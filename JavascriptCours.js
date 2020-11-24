@@ -44,3 +44,33 @@ console.log (message);
 
 3 && 5
 5
+
+
+
+
+// Boucles do
+do { 
+    
+    essai = Number(prompt("Trop grand, rééssayer"));
+
+} while(resultat<essai);
+
+do { 
+    
+    essai = Number(prompt("Trop petit, rééssayer"));
+
+} while(resultat>essai);
+
+
+// Boucles while
+while(resultat>essai){
+
+    essai = Number(prompt("Trop grand, rééssayer"));
+
+}
+
+while(resultat<essai){
+
+    essai = Number(prompt("Trop petit, rééssayer"));
+
+}
