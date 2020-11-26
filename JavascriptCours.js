@@ -46,31 +46,24 @@ console.log (message);
 5
 
 
+// Exemples pour le Switch (pour afficher des choix selon ce qu'on sélectionne)
+
+let choix = 3
+switch (choix) {
+case 0 :
+    console.log("case 0");
+    break;
+case 1: 
+    console.log("case 1");
+    break;
+case 3: 
+    console.log("case 3");
+    break;
+case 7: 
+    console.log("case 7");
+    break;
+default: 
+	console.log("default");
+};
 
 
-// Boucles do
-do { 
-    
-    essai = Number(prompt("Trop grand, rééssayer"));
-
-} while(resultat<essai);
-
-do { 
-    
-    essai = Number(prompt("Trop petit, rééssayer"));
-
-} while(resultat>essai);
-
-
-// Boucles while
-while(resultat>essai){
-
-    essai = Number(prompt("Trop grand, rééssayer"));
-
-}
-
-while(resultat<essai){
-
-    essai = Number(prompt("Trop petit, rééssayer"));
-
-}
