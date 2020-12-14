@@ -1,0 +1,58 @@
+/* Feuille de style évènements JS*/
+
+/* reset du Body */
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:dimgrey;
+}
+
+.myDiv{
+    display: inline-block;
+    width: 230px;
+    height: 180px;
+    background-color: red;
+    border: 1px solid black;
+    margin: 20px;
+    cursor: pointer;
+}
+
+
+* {
+    font-size: 1em;
+    font-weight:bolder;
+    color:white;
+}
+
+.divNoire {
+    background-color: black;
+    height: 40px;
+    width:;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight:bolder;
+    text-align: center;
+}
+
+div {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+video#bgvid {
+    position: fixed; right: 0; bottom: 0;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
+    background: url(alpine-4549189_1920.jpg) no-repeat;
+    background-size: cover;
+  }
+
+  video { display: block; }

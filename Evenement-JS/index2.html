@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conteneur</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <h1>Les 4 conteneurs !</h1>
+    <div id="Conteneur">
+        <div class="myDiv">Div 1</div>
+        <div class="myDiv">Div 2</div>
+        <div class="myDiv">Div 3</div>
+        <div class="myDiv">Div 4</div>
+      </div>
+      <hr>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum provident inventore pariatur, unde maiores eum optio! Qui itaque odit enim, quidem distinctio illum accusamus. Eos minima neque earum at quas?</p>
+      <p>Possimus tempora vero, id rem, beatae consequatur fuga eligendi quo aspernatur nostrum itaque, nisi sint perspiciatis dolores mollitia libero aperiam. Praesentium, dicta. Accusamus reiciendis, nesciunt magnam maiores deleniti id iste.</p>
+      <p>Labore eum impedit illo. Placeat necessitatibus totam hic, laboriosam officiis reiciendis autem vero soluta cumque in, similique temporibus facilis. Quaerat, perspiciatis. Rerum voluptates asperiores velit impedit corrupti ut optio dolorem.</p> 
+      <video autoplay loop poster="Photos/alpine-4549189_1920.jpg" id="bgvid">
+        <source src="videos/Voici l’iPhone 12 – Apple.webm" type="video/webm">
+        <source src="videos/Voici l’iPhone 12 – Apple.mp4" type="video/mp4">
+    
+    </video>  
+</body>
+<script>
+    let myCmptr=0;
+    let myNomElement="";
+    let myConteneurHtml = document.getElementById("Conteneur");
+    let myTblClique = Array.from(document.querySelectorAll(".myDiv"));
+    for (myCmptr = 0; myCmptr < myTblClique.length; myCmptr++) {
+        myTblClique[myCmptr].addEventListener('click', myOnClick);
+    }
+    function myOnClick(event)
+    {
+        let myIndice = myTblClique.indexOf(event.currentTarget);
+        if (myIndice != -1)
+        myNomElement = myTblClique[myIndice].textContent;
+        alert('Elément cliqué : '+ myNomElement);
+    }
+    <!--[if lt IE 9]>
+<script>
+document.createElement('video');
+</script>
+<![endif]-->
+    
+</script>
+</html>
