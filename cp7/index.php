@@ -41,26 +41,10 @@ echo $html;
 ?>
 </section>
 
-<?php
-include_once('projects.php');
-print_r($projects);
-
-$nbrColonne = 3;
-$nbrLigne = 3;
-
-echo '<table>';
-echo '<tr>';
-echo '<td>';
-for ($i=0; $i<=$nbrColonne; $i++){
-    echo '</td>';
-} 
-echo '</tr>';
-echo '</table>';
-?>
-
 <h2>Nos références</h2>
 <section id="projects">
     <?php include_once('projects.php');
+
     ?>
 </section>
     
