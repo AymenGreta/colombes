@@ -1,9 +1,9 @@
 <?php
 /**
  * Renvoie l'âge en années entre deux dates passées en paramètres
- * @param {string} $date1 - une date ('dd/mm/yyyy' ou 'yyyy-mm-dd')
- * @param {string} $date2 - une autre date ('dd/mm/yyyy' ou 'yyyy-mm-dd')
- * @return {int} âge en années
+ * @param string $date1 - une date ('dd/mm/yyyy' ou 'yyyy-mm-dd')
+ * @param string $date2 - une autre date ('dd/mm/yyyy' ou 'yyyy-mm-dd')
+ * @return int âge en années
  */
 
  //Différence entre les deux dates en années (arrondi à l'entier inférieur).
@@ -48,8 +48,8 @@ function is_date($arg) : bool {
 
 /**
  * Renvoie un montant TTC à partir d'un montant HT et d'un taux de TV passés en paramètres
- * @param {float} $mt - montant positif
- * @param {float} $taux - taux valant : 0.021, 0.055, 0.1, 0.2
+ * @param float $mt - montant positif
+ * @param float $taux - taux valant : 0.021, 0.055, 0.1, 0.2
  * taux normal : 20%
  * taux intermédiaire 10%
  * taux réduit 5.5%
@@ -58,14 +58,106 @@ function is_date($arg) : bool {
  */
 function TTC($mt, $taux=.02): float 
 {
-    
-    if (!is_float($mt) && $mt < 0){ // Le "!" avant le is_float, c'est pour dire " si ce n'est pas un float" 
-        trigger_error("Veuillez saisir un montant HT positif",E_USER_ERROR);
+    $result = 0.0;
+    $corrects = [.021, .055, .1, .2];
 
+    if($mt<0){
+        trigger_error('Le montant HT doit être positif.', E_USER_ERROR);
     }elseif (!in_array($taux, $corrects, true)){
         trigger_error("Le taux doit être : " .implode(',', $corrects), E_USER_WARNING);
     }else {
-        return $mt * (1 + $taux);
+        $result = $mt * (1 + $taux);
+    }       
+    return $result;
+}
+
+/**
+ * Renvoie un mote de passe aléatoire à partir du dictionnaire de caractères suivants : 
+ * -A à Z
+ * -a à z
+ * -0 à 9
+ * -+*$#
+ */
+
+function generatePassword(int $len = 8) : string {
+
+    $dico = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+*/$#";
+
+    $pass = str_shuffle($dico);
+    $pass = substr($pass, 0, $len);
+    return $pass;
+}; 
+
+function generatePassword2(int $len = 8) : string {
+    //Création du dictionnaire en arrays
+    $upper = range('A','Z');
+    $lower = range('a', 'z');
+    $nums = range (0,9);
+    $symbols = array('+', '*', '/', '$', '#');
+    $dico = array_merge($upper, $lower, $nums, $symbols);
+    shuffle($dico);
+    
+    //Limite le nombre de caractère min à 8
+    if($len<8 || $len > count($dico)){
+        trigger_error(sprintf('Entre %d et %d caractères.', $len, count($dico)), E_USER_NOTICE);
+    }
+
+    //Renvoie le mot de passe en piochant au hasard 8 caractères 
+    $pass='';
+    for($i=0; $i<$len; $i++){
+        $pass .= $dico[rand(0, count($dico)-1)];       
+        //.= veut dire on concatène a chaque passage
+    }
+    return $pass;
+}
+
+/**
+ *  Renvoie sous la forme d'une chaine de caractères le code HTML pour afficher un SELECT à partir d'un array passé en paramètre
+ * @param array $data tableau contenant les clés/valeurs
+ * @return string 
+ */
+
+function makeSelect(array $data) : string {
+    $html = '<select>';
+    foreach($data as $key=>$val){
+        $html.='<option value="'.$Key.'">' .$val. '</option>';
+    }
+    $html .='</select>';  
+    return $html;      
+}
+makeSelect(array(1 => 'Mo', 2 => 'Jérémy', 14 => 'Nathan'));
+
+/**
+ * Calcule la moyenne des valeurs passées en paramètres
+ * Exemple : average(10,20,30) renvoie 20 
+ * average (1,2,3,4,5,....,100)renvoie 50.5
+ * @return float
+ */
+
+ function average(){
+     $r =0; 
+     $nb =0;
+
+     if(func_num_args()===1 && is_array(func_get_arg(0))){
+        $numbers=func_get_arg(0);
+     }else{
+         $numbers=func_get_args();
+     }
+
+     for ($i=0; $i<count($numbers); $i++){
+        if(is_numeric($numbers[$i])) {
+        $r += $numbers[$i];
+         $nb++;
+     }
+    }
+     $r /= $nb;
+     return $r;
+ }
+
+ function average2(){
+    $r =0; 
+    foreach (func_get_args() as $val){
+        $r += $val;
     }
 }
 ?>
