@@ -46,9 +46,13 @@ $res=mysqli_query($cnn, 'SELECT * FROM categories');
   <?php
   // Liste les data 
   $html="";
-  while ($row = mysqli_fetch_assoc($res)){
+  while ($row = mysqli_fetch_row($res)){
     $html.="<tr>";
     foreach($row as $key => $val){
+      // Lien si 1ère colonne
+      if($key===0){
+        $html .='<td><a href="edit_cat_form.php?k='.$val.'">'.$val.'</a></td>';
+      }
       // Si ce n'est pas du BLOB
       if(strpos($val, ';base64,')){
         $html.='<td><img src="' .$val.'"/></td>';

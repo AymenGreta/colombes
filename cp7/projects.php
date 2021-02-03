@@ -4,7 +4,7 @@ $projects = array(
     
 "NRJ" => array(
 "name"=>"Energies renouvelables",
-"budget"=>"400000 euros",
+"budget"=>400000,
 "technologies"=> array(
     "web" => array("HTML", "CSS", "JS"),
     "Mobile" => array("React Native")
@@ -13,7 +13,7 @@ $projects = array(
 
 "H2O" => array(
     "name"=>"Traitement des eaux usées",
-    "budget"=>"750000 euros",
+    "budget"=>750000,
     "technologies"=> array(
         "Client riche" => array("Java", "Oracle"),
         "RWD" => array("MangoDB", "Node", "Angular")
@@ -23,15 +23,10 @@ $projects = array(
     "RDC" => array(
         "name"=>"Gestion des maraudes restos du coeur",
         "technologies"=> array(
-        "Web static"=> array(
-            "Client riche" => array("HTML", "CSS", "JS")
-        )
+            "Web static" => array("HTML", "CSS", "JS")
+        
         )
     )
-
-
-
-
 );
 //print_r($projects); //print_r() ou var_dump()
 
@@ -42,7 +37,7 @@ $html .='<thead> <tr> <th>Projets</th> <th>Budget</th> <th>Technologies</th> </t
 foreach($projects as $key=>$val){
     $html .= '<tr>';
     $html .= '<td>'. $key . '-'. $projects[$key]['name'] .'</td>';
-    $html .= '<td>'. (array_key_exists ('budget',$projects[$key]) ? number_format($projects[$key]['budget'], 2, ',',' ') .'€    ':'') . '</td>';
+    $html .= '<td>'. (array_key_exists ('budget',$projects[$key])?number_format($projects[$key]['budget'], 2, ',',' ') .'€':'') . '</td>';
     $html .= '<td>';
     foreach($projects[$key]['technologies'] as $key2 => $val2){
         $html .= '<li>' . $key2 . '<ol>';

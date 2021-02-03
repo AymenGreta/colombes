@@ -35,7 +35,7 @@ for($i=0; $i<count($members); $i++){
     $html .='<p class="card-text">'. $members[$i][1]. ' ans</p>';
     // C'est un opérateur ternaire, le ":" sert à comparer les deux et le "?" à dire qu'on est en mode opérateur ternaire.
     $html .='<p class="card-text">' .($members[$i][3]?($members[$i][2] ==='F'? 'Mariée':'Marié'):'Célibataire'). '<p>';
-    $html .='</div></div>';
+    $html .='</div> </div>';
 }
 echo $html;
 ?>
@@ -47,7 +47,21 @@ echo $html;
 
     ?>
 </section>
-    
+<div id="bo">
+<h2>Back Office</h2>
+<section id="tables">
+<?php
+$cnn = mysqli_connect('localhost', 'root', 'greta', 'information_schema');
+$res = mysqli_query($cnn, "select table_name, table_rows from information_schema.tables where table_schema = 'northwind'");
+$html='';
+while ($row = mysqli_fetch_assoc($res)){
+  $html .= '<a class = "btn btn-info" href="' .$row['TABLE_NAME'] . '">' . $row['TABLE_NAME'] . '<span class="badge badge-light">' . $row['TABLE_ROWS'] . '</span></a>';
+};
+echo $html;
+mysqli_close($cnn);
+?>
+</section>
+</div>
 </div>
 </div>
 </body>
