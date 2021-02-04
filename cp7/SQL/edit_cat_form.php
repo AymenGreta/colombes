@@ -1,3 +1,13 @@
+<?php
+// Si mode update : Querrystring
+$row=[];
+if (isset($_GET['k']) && !empty($_GET['k'])){
+$cnn=mysqli_connect('localhost', 'root', 'greta', 'northwind');
+$res=mysqli_query($cnn, 'SELECT * FROM categories WHERE code_categorie=' .$_GET['k']);
+$row=mysqli_fetch_assoc($res);
+}
+//echo $_SERVER['QUERY_STRING'];
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,26 +24,26 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
-    <li class="breadcrumb-item"><a href="edit_cat_list.php">Liste des catégories</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Edition  catégories</li>
+    <li class="breadcrumb-item"><a href="http://localhost/colombes/cp7/index.php">Accueil</a></li>
+    <li class="breadcrumb-item"><a href="http://localhost/colombes/cp7/SQL/edit_cat_list.php">Liste catégories</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edition catégories</li>
   </ol>
 </nav>
 
-<form action="edit_cat_proc.php" method="post" enctype="multipart/form-data">
+<form action="edit_cat_proc.php<?php echo($_SERVER['QUERY_STRING']?'?'.$_SERVER['QUERY_STRING']:'');?>" method="post" enctype="multipart/form-data">
 <div class="form-group">
 <label for="CODE_CATEGORIE">Code catégorie :</label>
-<input type="number" name="CODE_CATEGORIE" id="CODE_CATEGORIE" class="form-control" pattern ="[0-9]{1,6}" required>
+<input type="number" name="CODE_CATEGORIE" id="CODE_CATEGORIE" class="form-control" pattern ="[0-9]{1,6}" required value="<?php echo (!empty($row)?$row['CODE_CATEGORIE']:'');?>">
 </div>
 
 <div class="form-group">
 <label for="NOM_CATEGORIE">Nom catégorie :</label>
-<input type="text" name="NOM_CATEGORIE" id="NOM_CATEGORIE" class="form-control" required pattern="[A-Za-z '\-]{1,25}"> 
+<input type="text" name="NOM_CATEGORIE" id="NOM_CATEGORIE" class="form-control" required pattern="[A-Za-z '\-]{1,25}" required value="<?php echo (!empty($row)?$row['NOM_CATEGORIE']:'');?>"> 
 </div>
 
 <div class="form-group">
 <label for="DESCRIPTION">Description :</label>
-<textarea name="DESCRIPTION" id="DESCRIPTION" cols="30" rows="3" class="form-control" ></textarea>
+<textarea name="DESCRIPTION" id="DESCRIPTION" cols="30" rows="3" class="form-control" required ><?php echo (!empty($row)?$row['DESCRIPTION']:'');?></textarea>
 </div>
 
 <div class="form-group">
@@ -44,5 +54,6 @@
 
 <input type="submit" value="Enregistrer" class="btn btn-primary">
 </form>
+
 </body>
 </html>
